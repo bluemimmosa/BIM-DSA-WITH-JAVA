@@ -123,13 +123,14 @@ public class MainApp {
                 if(foundNode != null){
                     n1.next = foundNode.next;
                     foundNode.next = n1;
+                    System.out.println("List after new item inserted is:");
+                    displayAll();
+                    System.out.println("Insertion at the middle -- SUCCESS!!!");
                 }
                 else{
                     System.out.println("Item not found!");
                 }
-                System.out.println("List after new item inserted is:");
-                displayAll();
-                System.out.println("Insertion at the middle -- SUCCESS!!!");
+                
                 break;
             default:
                 System.out.println("Bad selection.");       
