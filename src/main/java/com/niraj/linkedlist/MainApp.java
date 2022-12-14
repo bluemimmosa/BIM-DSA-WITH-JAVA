@@ -38,7 +38,7 @@ public class MainApp {
                     }
                     break;
                 case 4:
-                    
+                    deleteItem();
                     break;
                 case 0:
                     System.exit(0);
@@ -59,6 +59,40 @@ public class MainApp {
             cur = cur.next;
         }
         return null;
+    }
+    
+    static void deleteItem(){
+        if(head != null){
+            System.out.println("Enter a node to delete: ");
+            Scanner sc = new Scanner(System.in);
+            int num = sc.nextInt();
+            
+            Node cur = head;
+            Node prevCur = head;
+            
+            if(head.next == null){
+                if(head.data == num){
+                    head = null;
+                    System.out.println("Successfully deleted the node.");
+                    return;
+                }else{
+                    System.out.println("Cannot find the num specified in the list.");
+                }
+            }else{
+                while(cur != null){
+                    if(cur.data == num){
+                        prevCur.next = cur.next;
+                        System.out.println("Node successfully deleted.");
+                        return;
+                    }
+                    prevCur = cur;
+                    cur = cur.next;
+                }
+                System.out.println("Cannot find the node specified.");
+            }
+        }else{
+            System.out.println("List doesnt exist.");
+    }
     }
     static void showMenu(){
         System.out.println("\nWelcome to Linked List Program");
