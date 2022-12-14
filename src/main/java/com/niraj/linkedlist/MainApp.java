@@ -70,7 +70,7 @@ public class MainApp {
             Node cur = head;
             Node prevCur = head;
             
-            if(head.next == null){
+            if(head.next == null){ // only one item on the list
                 if(head.data == num){
                     head = null;
                     System.out.println("Successfully deleted the node.");
@@ -78,8 +78,13 @@ public class MainApp {
                 }else{
                     System.out.println("Cannot find the num specified in the list.");
                 }
-            }else{
+            }else{ // there are more than one item in the list.
                 while(cur != null){
+                    if(head.data == num){//check if the item is at begining.
+                        head = head.next;
+                        System.out.println("Node was at the front and deleted successfully!");
+                        return;
+                    }
                     if(cur.data == num){
                         prevCur.next = cur.next;
                         System.out.println("Node successfully deleted.");
